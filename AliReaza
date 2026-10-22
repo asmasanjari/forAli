@@ -1,0 +1,375 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برای مرد خاص من 🤍</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d12;
+            --silver: #d8dce5;
+            --muted: #969baa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, #29334455, transparent 45%),
+                radial-gradient(ellipse at 80% 80%, #343c4d33, transparent 45%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: .15; transform: scale(.8); }
+            to { opacity: .9; transform: scale(1.4); }
+        }
+
+        .container {
+            width: min(100% - 36px, 950px);
+            margin: auto;
+        }
+
+        header {
+            padding: 28px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ffffff12;
+        }
+
+        .logo {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--silver);
+        }
+
+        .header-heart {
+            color: #d8dce5;
+            font-size: 22px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.2); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.12); }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 0 35px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #ffffff24;
+            border-radius: 50px;
+            color: var(--silver);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 7vw, 72px);
+            line-height: 1.5;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            display: block;
+            color: var(--silver);
+            text-shadow: 0 0 35px #cbd3e633;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            line-height: 2.2;
+            font-size: 15px;
+            margin: 20px auto 0;
+            max-width: 540px;
+        }
+
+        .photo-wrap {
+            width: min(100%, 440px);
+            margin: 38px auto 0;
+            position: relative;
+        }
+
+        .photo-frame {
+            padding: 9px;
+            border: 1px solid #cbd0da55;
+            border-radius: 190px 190px 22px 22px;
+            background: linear-gradient(145deg, #ffffff16, #ffffff02);
+            box-shadow: 0 25px 90px #00000066;
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 180px 180px 15px 15px;
+            filter: grayscale(15%);
+            transition: transform .6s, filter .6s;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.025);
+            filter: grayscale(0%);
+        }
+
+        .photo-caption {
+            margin-top: 17px;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            max-width: 700px;
+            margin: 85px auto;
+            padding: 42px 30px;
+            text-align: center;
+            border-top: 1px solid #ffffff20;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        .message .symbol {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .message h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            margin-bottom: 24px;
+        }
+
+        .message p {
+            color: #c0c4ce;
+            font-size: 15px;
+            line-height: 2.7;
+            font-weight: 300;
+        }
+
+        .message strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .surprise {
+            text-align: center;
+            padding: 15px 0 90px;
+        }
+
+        .surprise button {
+            font-family: inherit;
+            background: var(--silver);
+            color: #11141b;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .surprise button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px #cbd3e633;
+        }
+
+        #hiddenMessage {
+            display: none;
+            max-width: 550px;
+            margin: 30px auto 0;
+            color: var(--silver);
+            line-height: 2.5;
+            font-size: 16px;
+            animation: appear .8s ease;
+        }
+
+        #hiddenMessage.show {
+            display: block;
+        }
+
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid #ffffff12;
+            padding: 28px 15px;
+            color: #747987;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        footer span {
+            color: var(--silver);
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 20px 0; }
+            .hero { padding-top: 48px; }
+            .message { margin: 60px auto; padding: 35px 12px; }
+            .message p { font-size: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">A LITTLE PIECE OF MY HEART</div>
+            <div class="header-heart">♡</div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="eyebrow">HAPPY MEN'S DAY · روز مرد مبارک</div>
+
+                <h1>
+                    برای مردی که
+                    <span>دنیای من است</span>
+                </h1>
+
+                <p class="subtitle">
+                    بعضی آدم‌ها فقط وارد زندگی نمی‌شن؛
+                    میان تا معنی قشنگ‌تری به تمام روزهای آدم بدن.
+                </p>
+
+                <div class="photo-wrap">
+                    <div class="photo-frame">
+                        <img
+                            src="https://raw.githubusercontent.com/asmasanjari/forAli/main/IMG_20261022_191514_493.webp"
+                            alt="عکس مرد خاص من"
+                        >
+                    </div>
+                    <div class="photo-caption">
+                        MY FAVORITE PERSON · آدمِ مورد علاقه‌ی من
+                    </div>
+                </div>
+            </section>
+
+            <section class="message">
+                <div class="symbol">♡</div>
+
+                <h2>برای تو، مردِ قشنگِ زندگی من</h2>
+
+                <p>
+                    روز مرد مبارک به کسی که بودنش، حتی از دور،
+                    به دنیای من آرامش می‌ده.
+                    <br>
+                    به مردی که دوست دارم لبخندش رو ببینم،
+                    به آرزوهاش برسه و هر روز بیشتر از دیروز
+                    به خودش افتخار کنه.
+                    <br><br>
+                    <strong>
+                        امیدوارم دنیا همون‌قدر که تو برای آدم‌های
+                        دوست‌داشتنی زندگیت قشنگی،
+                        باهات قشنگ و مهربون باشه.
+                    </strong>
+                    <br>
+                    تو لایق بهترین اتفاق‌هایی؛
+                    نه فقط امروز، که تمام روزهای زندگی‌ت.
+                </p>
+            </section>
+
+            <section class="surprise">
+                <button id="surpriseBtn" onclick="showSurprise()">
+                    یه حرف دیگه هم دارم برات 🤍
+                </button>
+
+                <p id="hiddenMessage">
+                    اگه قرار بود از بین تمام آدم‌های دنیا،
+                    دوباره یکی رو برای دوست داشتن انتخاب کنم،
+                    دلم می‌خواست باز هم مسیرم به تو برسه.
+                    <br>
+                    روزت مبارک، مردِ خاص من ♡
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        ساخته شده با <span>♡</span> برای یک آدم خاص
+        <br>
+        بعضی حس‌ها رو نمی‌شه توضیح داد؛ فقط می‌شه زندگی‌شون کرد.
+    </footer>
+
+    <script>
+        const stars = document.getElementById("stars");
+
+        for (let i = 0; i < 90; i++) {
+            const star = document.createElement("span");
+            star.className = "star";
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 100 + "%";
+            star.style.animationDelay = Math.random() * 3 + "s";
+            star.style.animationDuration = (2 + Math.random() * 4) + "s";
+            stars.appendChild(star);
+        }
+
+        function showSurprise() {
+            const message = document.getElementById("hiddenMessage");
+            const button = document.getElementById("surpriseBtn");
+
+            message.classList.toggle("show");
+
+            button.textContent = message.classList.contains("show")
+                ? "اینم حرفی که توی دلم بود ♡"
+                : "یه حرف دیگه هم دارم برات 🤍";
+        }
+    </script>
+</body>
+</html>
+```
